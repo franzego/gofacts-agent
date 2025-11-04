@@ -1,0 +1,24 @@
+{
+  "name": "GoFactsAgent",
+  "description": "An AI agent that shares fun facts, tips, syntax snippets, and Go trivia 🐹",
+  "category": "education",
+  "type": "a2a",
+  "active": true,
+  "webhook_url": "https://YOUR-DEPLOYED-URL/telex/webhook",
+  "long_description": "GoFactsAgent is a lightweight AI assistant built in Go. It delivers quick Go programming tips, syntax reminders, fun trivia, and facts about the language and its history. Ideal for developers learning or improving their Go skills in chat.",
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {},
+  "nodes": [
+    {
+      "id": "gofacts_node",
+      "name": "Go Fun Agent",
+      "parameters": {},
+      "position": [320, -150],
+      "type": "a2a/custom-go-agent",
+      "typeVersion": 1,
+      "url": "https://YOUR-DEPLOYED-URL/telex/webhook"
+    }
+  ]
+}
