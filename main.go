@@ -1,11 +1,10 @@
 package main
 
 import (
-	"fmt"
 	"log"
+	"os"
 
 	"github.com/franzego/stage03/internal"
-	"github.com/franzego/stage03/logic"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 )
@@ -28,6 +27,12 @@ func main() {
 	r.POST("/detect", internal.DetectCategoryHandler)
 	r.POST("telex/webhook", internal.PostTelexWebHook)
 
-	r.Run(":8080")
-	fmt.Print(logic.FactRandom())
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+	if err := r.Run("0.0.0.0:" + port); err != nil {
+		log.Fatalf("Server failed to start: %v", err)
+	}
+	// fmt.Print(logic.FactRandom())
 }
